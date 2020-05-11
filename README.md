@@ -4,17 +4,18 @@
 
 Pas forcément très connu, surtout en France !!Product Hunt permet à toute la communauté web de participer à une notation globale de n'importe quel produit ou logiciel. Peut-on faire mieux et plus simple ?
 
-📜 Scénarios utilisateurs minimum requis
+<strong>📜 Scénarios utilisateurs minimum requis</strong>
 
-Compte
+  <li>Compte
 
-En tant qu'utilisateur non connecté, je dois me connecter en saisissant seulement mon pseudo. Il n'y a pas de mot de passe.Si le pseudo n'est pas connu dans la base de données, un nouvel utilisateur est créé. Si le pseudo est connu dans la base de données, alors je suis connecté sur le profil.
+<ul>En tant qu'utilisateur non connecté, je dois me connecter en saisissant seulement mon pseudo. Il n'y a pas de mot de passe.Si le pseudo n'est pas connu dans la base de données, un nouvel utilisateur est créé. Si le pseudo est connu dans la base de données, alors je suis connecté sur le profil.
+  </li>
 
-Liste des produits
+<li>Liste des produits
 
-En tant qu'utilisateur connecté, j'accède à la liste des produits triées  par nouveautés ou par popularité
+<ul>En tant qu'utilisateur connecté, j'accède à la liste des produits triées  par nouveautés ou par popularité</ul>
 
-En tant qu'utilisateur connecté, je clique sur le menu "Explorer" pour filter les produits par catégorie
+<ul>En tant qu'utilisateur connecté, je clique sur le menu "Explorer" pour filter les produits par catégorie</ul>
 
 Fonction Up
 
