@@ -1,6 +1,6 @@
 # Projet Simplon
 
-Product Hunt – The best new products in tech.
+<strong>Product Hunt – The best new products in tech.</strong>
 
 Pas forcément très connu, surtout en France !!Product Hunt permet à toute la communauté web de participer à une notation globale de n'importe quel produit ou logiciel. Peut-on faire mieux et plus simple ?
 
