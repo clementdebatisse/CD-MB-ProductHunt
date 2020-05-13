@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="style.css">
     <title>Product-Hunt</title>
 </head>
 <body>
@@ -45,7 +45,7 @@
                 <a class="dropdown-item" href="produit.php">Produits les plus populaires</a>
                 <a class="dropdown-item" href="#">Nouveautés</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="product-list.html">Liste des produits mis en avant</a>
+                <a class="dropdown-item" href="product-list.php">Liste des produits mis en avant</a>
               </div>
             </li>
 

@@ -1,9 +1,43 @@
+<?php
+try
+{
+	$bdd = new PDO('mysql:host=127.0.0.1;dbname=product-hunt;charset=utf8',
+                   'root',
+                   '',
+                   array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+}
+catch (Exception $e)
+{
+    die('Erreur : ' . $e->getMessage());
+}
+
+
+$selectProducts = $bdd->prepare('SELECT * FROM products');
+$selectProducts->execute();
+$products = $selectProducts->fetchAll(PDO::FETCH_ASSOC);
+
+//echo "<pre>";
+//var_dump($products); exit;
+foreach($products as $product) { ?>
+    <div class="product">
+    <h2><?=$product['name']?></h2>
+    <p><?=$product['description']?></p>
+    <a href="<?=$product['url']?>"><?=$product['url']?></a>
+    <a href="/addups.php?id=<?=$product['id']?>"><?=$product['ups']?></a>
+     <!--récuperer le paramètre id sur addups.php : $_GET['id'] -->
+</div>
+<?php } 
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>Liste des produits</title>
 </head>
 <body>
@@ -44,7 +78,7 @@
                     <a class="dropdown-item" href="produit.php">Produits les plus populaires</a>
                     <a class="dropdown-item" href="#">Nouveautés</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="product-list.html">Liste des produits mis en avant</a>
+                    <a class="dropdown-item" href="product-list.php">Liste des produits mis en avant</a>
                   </div>
                 </li>
     
