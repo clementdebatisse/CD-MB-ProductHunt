@@ -14,14 +14,7 @@ catch (Exception $e)
 // Récupération du pseudo déja utilisé
 $currentNickname = $_COOKIE["user_cookie"] ?? "";
 
-//afichage de TOUS les utilisateurs
-
-$allUsersStatement = $bdd->query('SELECT nom FROM infos');
-    $allUsers = $allUsersStatement->fetchAll(PDO::FETCH_ASSOC);
-
-     foreach($allUsers as $user) : ?>
-        <div><?=$user["nom"]?></div>
-    <?php endforeach; ?>
+?>
 
 
 <!DOCTYPE html>
@@ -75,15 +68,6 @@ $allUsersStatement = $bdd->query('SELECT nom FROM infos');
 
         <!-- ----------------------------------------------------------------- -->
 
-        <!-- Ajouter qlq chose ici ? si on veut -->
-
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-
-        <!-- -------------------------------------------- -->
-
-      </ul>
 
       <!-- --------------------BARRE DE RECHERCHE------------------------ -->
 
@@ -166,8 +150,16 @@ if(!empty($_POST["nom"])) {
 
 }
 
-    
-?>
+//afichage de TOUS les utilisateurs
+
+$allUsersStatement = $bdd->query('SELECT nom FROM infos');
+    $allUsers = $allUsersStatement->fetchAll(PDO::FETCH_ASSOC);
+
+     foreach($allUsers as $user) : ?>
+        <div><?=$user["nom"]?></div>
+    <?php endforeach; ?>
+
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
