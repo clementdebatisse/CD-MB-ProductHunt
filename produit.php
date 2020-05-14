@@ -11,24 +11,6 @@ catch (Exception $e)
     die('Erreur : ' . $e->getMessage());
 }
 
-
-$selectProducts = $bdd->prepare('SELECT * FROM products');
-$selectProducts->execute();
-$products = $selectProducts->fetchAll(PDO::FETCH_ASSOC);
-
-//echo "<pre>";
-//var_dump($products); exit;
-foreach($products as $product) { ?>
-    <div class="product">
-    <h2><?=$product['name']?></h2>
-    <p><?=$product['description']?></p>
-    <a href="<?=$product['url']?>"><?=$product['url']?></a>
-    <a href="/addups.php?id=<?=$product['id']?>"><?=$product['ups']?></a>
-     <!--récuperer le paramètre id sur addups.php : $_GET['id'] -->
-</div>
-<?php }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -37,16 +19,10 @@ foreach($products as $product) { ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
     <title>Product-Hunt</title>
 </head>
 <body>
-
-    <!-- Balise ouvrante pour contenu responsive -->
-
-    <div class="container-fluid">
-
-        <!-- ---------------------------------- -->
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#"><img src="Library/simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
@@ -78,7 +54,7 @@ foreach($products as $product) { ?>
                     <a class="dropdown-item" href="produit.php">Produits les plus populaires</a>
                     <a class="dropdown-item" href="#">Nouveautés</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="product-list.html">Liste des produits mis en avant</a>
+                    <a class="dropdown-item" href="product-list.php">Liste des produits mis en avant</a>
                   </div>
                 </li>
     
@@ -104,7 +80,23 @@ foreach($products as $product) { ?>
               <!-- ------------------------------------- -->
             </div>
           </nav>
-    </div>    
+
+<?php
+    $selectProducts = $bdd->prepare('SELECT * FROM products');
+$selectProducts->execute();
+$products = $selectProducts->fetchAll(PDO::FETCH_ASSOC);
+
+//echo "<pre>";
+//var_dump($products); exit;
+foreach($products as $product) { ?>
+    <div class="product">
+    <h2><?=$product['name']?></h2>
+    <p><?=$product['description']?></p>
+    <a href="<?=$product['url']?>"><?=$product['url']?></a>
+    <a href="/addups.php?id=<?=$product['id']?>"><?=$product['ups']?></a>
+     <!--récuperer le paramètre id sur addups.php : $_GET['id'] -->
+</div>
+<?php } ?>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

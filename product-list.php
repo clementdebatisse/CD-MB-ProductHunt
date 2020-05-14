@@ -11,23 +11,6 @@ catch (Exception $e)
     die('Erreur : ' . $e->getMessage());
 }
 
-
-$selectProducts = $bdd->prepare('SELECT * FROM products');
-$selectProducts->execute();
-$products = $selectProducts->fetchAll(PDO::FETCH_ASSOC);
-
-//echo "<pre>";
-//var_dump($products); exit;
-foreach($products as $product) { ?>
-    <div class="product">
-    <h2><?=$product['name']?></h2>
-    <p><?=$product['description']?></p>
-    <a href="<?=$product['url']?>"><?=$product['url']?></a>
-    <a href="/addups.php?id=<?=$product['id']?>"><?=$product['ups']?></a>
-     <!--récuperer le paramètre id sur addups.php : $_GET['id'] -->
-</div>
-<?php } 
-
 ?>
 
 
@@ -37,16 +20,10 @@ foreach($products as $product) { ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
     <title>Liste des produits</title>
 </head>
 <body>
-
-    <!-- Balise ouvrante pour contenu responsive -->
-
-    <div class="container-fluid">
-
-        <!-- ---------------------------------- -->
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#"><img src="Library/simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
@@ -110,75 +87,99 @@ foreach($products as $product) { ?>
 
         <div class="card-deck">
             <div class="card">
-            <img class="card-img-top" src="Library/gloves1.jpg" width=479.328px height=296.484px alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-            </div>
-            <div class="card">
-            <img class="card-img-top" src="Library/gloves2.jpg" width=479.328px height=296.484px alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-            </div>
-            <div class="card">
-            <img class="card-img-top" src="Library/gloves3.jpg" width=479.328px height=296.484px alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-            </div>
-        </div>
-
-    <br />  
-
-        <div class="card-deck">
-            <div class="card">
             <img class="card-img-top" src="Library/mask1.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <h5 class="card-title">Urban Air Mask 2.0</h5>
+                <p class="card-text"><ul>Sobre, efficace et flexible, l’Urban Air Mask 2.0 combine les qualités scandinaves avec succès. Offrant d’excellentes prestations et facile à porter, le dernier produit d’Airinum est idéal pour les citadins qui n’en peuvent plus de respirer un air chargé de particules et de mauvaises odeurs.</p>
+                <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
             <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
+                <small class="text-muted">Publié il a une semaine</small>
             </div>
             </div>
             <div class="card">
             <img class="card-img-top" src="Library/mask2.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                <h5 class="card-title">Mask Generation</h5>
+                <p class="card-text"><ul>C'est dans l'optique de proposer aux français un masque de protection efficace, confortable, réutilisable et abordable que l'entreprise Mask Generation  a créé Le Mask Français.
+                Un masque 100% Made in France à un tarif bien plus abordable que le masque haut de gamme déjà proposé par la marque (le Sirocco), puisqu'il est disponible sur le site LeMaskFrançais.com à 39€.</p>
+                <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
             <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
+                <small class="text-muted">Publié il y a 5 jours</small>
             </div>
             </div>
             <div class="card">
             <img class="card-img-top" src="Library/mask3.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                <h5 class="card-title">NanoHack</h5>
+                <p class="card-text"><ul>Le fabricant de matériaux d’impression 3D Copper3D vient de mettre en ligne un fichier STL open-source d’un masque N95, imprimable en 3D. Son initiative “Hack The Pandemic” est mondiale et vise à mobiliser tous les fabricants de machines, fablabs, services d’impression, etc. à créer ces masques dont le manque se fait ressentir dans les hôpitaux et chez les professionnels de santé.</p>
+                <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
             <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
+                <small class="text-muted">Publié il y a 5 jours</small>
+            </div>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="card-deck">
+            <div class="card">
+            <img class="card-img-top" src="Library/gloves1.jpg" width=479.328px height=296.484px alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Gants militaires</h5>
+                <p class="card-text"><ul>Gant militaire à partir de 9€. Le gant est un accessoire de mode, un équipement de sport ou un élément de protection, recouvrant la main, utilisé pour se protéger notamment du froid, ou encore des écorchures et frottements.</p>
+                <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</ul></strong>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Publié il y a une semaine </small>
+            </div>
+            </div>
+            <div class="card">
+            <img class="card-img-top" src="Library/gloves2.jpg" width=479.328px height=296.484px alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Gants en latex</h5>
+                <p class="card-text"><ul>Gants à usage unique en latex étanche, ultra fins. Très grande souplesse, effet seconde peau garantie. Pour risques mineurs uniquement.</p>
+                <p class="partnerLink"><strong>Cliquez sur le produit pour être redirigé vers notre partenaire</ul></strong></p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Publié il y a 3 jours</small>
+            </div>
+            </div>
+            <div class="card">
+            <img class="card-img-top" src="Library/gloves3.jpg" width=479.328px height=296.484px alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Gants médicaux</h5>
+                <p class="card-text"><ul>Les gants médicaux sont des consommables médicaux indispensables à tous les professionnels de santé, utilisés dans les cabinets médicaux, les hôpitaux... Ces gants sont à usage unique et permettent de protéger le patient et le soignant des infections pouvant se transmettre par contact.</p>
+                <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Publié il y a 3 jours</small>
             </div>
             </div>
         </div>
 
         <!-- --------------------------------------------------------------- -->
 
-    </div>
+    <?php 
+$selectProducts = $bdd->prepare('SELECT * FROM products');
+$selectProducts->execute();
+$products = $selectProducts->fetchAll(PDO::FETCH_ASSOC);
+
+//echo "<pre>";
+//var_dump($products); exit;
+foreach($products as $product) { ?>
+    <div class="product">
+    <h2><?=$product['name']?></h2>
+    <p><?=$product['description']?></p>
+    <a href="<?=$product['url']?>"><?=$product['url']?></a>
+    <a href="/addups.php?id=<?=$product['id']?>"><?=$product['ups']?></a>
+     <!--récuperer le paramètre id sur addups.php : $_GET['id'] -->
+</div>
+<?php } 
+
+?>
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

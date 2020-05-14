@@ -4,16 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
     <title>Product-Hunt</title>
 </head>
 <body>
-
-    <!-- Balise ouvrante pour contenu responsive -->
-
-  <div class="container-fluid">
-
-      <!-- ---------------------------------- -->
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#"><img src="Library/simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
@@ -72,29 +66,38 @@
         </div>
       </nav>
 
+      
       <!-- Carousel qui doit afficher 1 produit populaire et 1 nouveauté -->
       <!-- N'est pas responsive et devra l'être -->
 
       
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="Library/mask1.jpg" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Nouveauté de la semaine</h5>
-                    <p>So fresh</p>
-              </div>
+            <img class="d-block w-100" src="Library/slide1.jpg" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="carousel-title">Product-Hunt</h5>
+              <p class="carousel-description">Le but de Product-Hunt Simplon est de ralier les meilleurs produits au marché</p>
+            </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="Library/gloves1.jpg" alt="Second slide">
+            <img class="d-block w-100" src="Library/slide2.jpg" alt="Second slide">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Produit populaire</h5>
-                <p>Voyez-ici un nouveau produit au TOP</p>
+              <h5>Système de vote</h5>
+              <p>Pour cela, nous avons instauré un système de vote par utilisateur</p>
+            </div>
           </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="Library/slide3.jpg" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Mettre en avant les meilleurs produits</h5>
+              <p>Ainsi, les entreprises ainsi que les particuliers sont tenus au courant des meilleurs produits du moment</p>
+            </div>
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -107,8 +110,31 @@
         </a>
     </div>
 
-  </div>
-    <!-- ----------------------------------------------------------------- -->
+    <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Services</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i></span>
+                        <h4 class="my-3">E-Commerce</h4>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-laptop fa-stack-1x fa-inverse"></i></span>
+                        <h4 class="my-3">Responsive Design</h4>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-lock fa-stack-1x fa-inverse"></i></span>
+                        <h4 class="my-3">Web Security</h4>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
