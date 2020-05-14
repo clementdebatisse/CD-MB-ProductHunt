@@ -18,12 +18,12 @@ catch (Exception $e)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" type="text/css" href="style1.css?version=51">
     <title>Product-Hunt</title>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#"><img src="Library/simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -100,30 +100,8 @@ catch (Exception $e)
     ?>
     </div>
     </nav>
-
+    
             <!-- ----------------------------------------------------------------- -->
-
-            <!-- Ajouter qlq chose ici ? si on veut -->
-
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-
-            <!-- -------------------------------------------- -->
-
-          </ul>
-
-          <!-- Ajouter champ de recherche dans BDD -->
-
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
-          </form>
-
-          <!-- ------------------------------------- -->
-        </div>
-      </nav>
-
       
       <!-- Carousel qui doit afficher 1 produit populaire et 1 nouveauté -->
       <!-- N'est pas responsive et devra l'être -->
@@ -167,32 +145,34 @@ catch (Exception $e)
           <span class="sr-only">Next</span>
         </a>
     </div>
-
-    <section class="page-section" id="services">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Services</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-                <div class="row text-center">
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i></span>
-                        <h4 class="my-3">E-Commerce</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-laptop fa-stack-1x fa-inverse"></i></span>
-                        <h4 class="my-3">Responsive Design</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-lock fa-stack-1x fa-inverse"></i></span>
-                        <h4 class="my-3">Web Security</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    
+    <div class="Services">
+      <section class="page-section" id="services">
+              <div class="container">
+                  <div class="text-center">
+                      <h2 class="section-heading text-uppercase">Qu'est ce que Product-Hunt ?</h2>
+                      <h3 class="section-subheading text-muted">Nous proposons 3 services</h3>
+                  </div>
+                  <div class="row text-center">
+                      <div class="col-md-4">
+                          <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i></span>
+                          <h4 class="my-3">Produits sur le marché</h4>
+                          <p class="text-muted">Une liste de produits est mise en avant par notre site</p>
+                      </div>
+                      <div class="col-md-4">
+                          <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-laptop fa-stack-1x fa-inverse"></i></span>
+                          <h4 class="my-3">Système de upvote</h4>
+                          <p class="text-muted">Chaque utilisateur inscrit et connecté peut choisir de voter pour son produit préferé</p>
+                      </div>
+                      <div class="col-md-4">
+                          <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-lock fa-stack-1x fa-inverse"></i></span>
+                          <h4 class="my-3">Produits mis en avant</h4>
+                          <p class="text-muted">Les produits ayant reçu le plus de votes sont mis en avant par notre site, garantissant une meilleure visiblité pour les potentiels acheteurs/investisseurs </p>
+                      </div>
+                  </div>
+              </div>
+          </section>
+  </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
