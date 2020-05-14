@@ -49,7 +49,7 @@ foreach($products as $product) { ?>
         <!-- ---------------------------------- -->
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"><img src="simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
+            <a class="navbar-brand" href="#"><img src="Library/simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -63,7 +63,7 @@ foreach($products as $product) { ?>
                 <!-- Doit redigirer vers une page ou user peut se connecter -->
     
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Se connecter</a>
+                  <a class="nav-link" href="inscription.php">Se connecter</a>
     
                 <!-- ---------------------------------------------------------- -->
     
@@ -110,7 +110,7 @@ foreach($products as $product) { ?>
 
         <div class="card-deck">
             <div class="card">
-            <img class="card-img-top" src="simplon logo.jpg" width=479.328px height=296.484px alt="Card image cap">
+            <img class="card-img-top" src="Library/gloves1.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -120,7 +120,7 @@ foreach($products as $product) { ?>
             </div>
             </div>
             <div class="card">
-            <img class="card-img-top" src="new product.jpg" width=479.328px height=296.484px alt="Card image cap">
+            <img class="card-img-top" src="Library/gloves2.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -130,7 +130,7 @@ foreach($products as $product) { ?>
             </div>
             </div>
             <div class="card">
-            <img class="card-img-top" src="top-seller.jpg" width=479.328px height=296.484px alt="Card image cap">
+            <img class="card-img-top" src="Library/gloves3.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
@@ -145,7 +145,7 @@ foreach($products as $product) { ?>
 
         <div class="card-deck">
             <div class="card">
-            <img class="card-img-top" src="simplon logo.jpg" width=479.328px height=296.484px alt="Card image cap">
+            <img class="card-img-top" src="Library/mask1.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -155,7 +155,7 @@ foreach($products as $product) { ?>
             </div>
             </div>
             <div class="card">
-            <img class="card-img-top" src="new product.jpg" width=479.328px height=296.484px alt="Card image cap">
+            <img class="card-img-top" src="Library/mask2.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -165,7 +165,7 @@ foreach($products as $product) { ?>
             </div>
             </div>
             <div class="card">
-            <img class="card-img-top" src="top-seller.jpg" width=479.328px height=296.484px alt="Card image cap">
+            <img class="card-img-top" src="Library/mask3.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>

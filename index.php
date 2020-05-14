@@ -16,7 +16,7 @@
       <!-- ---------------------------------- -->
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img src="simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
+        <a class="navbar-brand" href="#"><img src="Library/simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,7 +30,7 @@
             <!-- Doit redigirer vers une page ou user peut se connecter -->
 
             <li class="nav-item">
-              <a class="nav-link" href="#">Se connecter</a>
+              <a class="nav-link" href="inscription.php">Se connecter</a>
 
             <!-- ---------------------------------------------------------- -->
 
@@ -83,14 +83,14 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="new product.jpg" alt="First slide">
+            <img class="d-block w-100" src="Library/mask1.jpg" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Nouveauté de la semaine</h5>
                     <p>So fresh</p>
               </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="top-seller.jpg" alt="Second slide">
+            <img class="d-block w-100" src="Library/gloves1.jpg" alt="Second slide">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Produit populaire</h5>
                 <p>Voyez-ici un nouveau produit au TOP</p>
