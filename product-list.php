@@ -71,17 +71,49 @@ catch (Exception $e)
     
               </ul>
     
-              <!-- Ajouter champ de recherche dans BDD -->
-    
-              <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
-              </form>
-    
-              <!-- ------------------------------------- -->
-            </div>
-          </nav>
+              <!-- --------------------BARRE DE RECHERCHE------------------------ -->
 
+          </ul>
+
+<form method="post">
+      <label>Rechercher</label>
+      <input type="text" name="search">
+      <input type="submit" name="submit">
+    </form>
+
+    <?php
+    
+    if (isset($_POST["submit"])) {
+      $str = $_POST["search"];
+      $sth = $bdd->prepare("SELECT * FROM products WHERE name = '$str'");
+
+      $sth->setFetchMode(PDO:: FETCH_OBJ);
+      $sth-> execute();
+
+      if($row = $sth->fetch())
+      {
+        ?>
+        <br><br><br>
+        <table>
+           <tr>
+             <th>name</th>
+             <th>description</th>
+           </tr>
+            <tr>
+              <td><?php echo $row->name; ?></td>
+              <td><?php echo $row->description; ?></td>
+            </tr>
+      </table>
+    <?php  
+    }
+      
+      else {
+        echo "Product does not exist";
+      }
+    }
+    ?>
+</div>
+</nav>
 
         <!-- Liste des produits, avec description, notes, liens etc etc..... -->
 

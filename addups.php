@@ -79,16 +79,49 @@ $productId = $_GET['id'];
 
       </ul>
 
-      <!-- Ajouter champ de recherche dans BDD -->
+      <!-- --------------------BARRE DE RECHERCHE------------------------ -->
 
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
-      </form>
+      </ul>
 
-      <!-- ------------------------------------- -->
-    </div>
-  </nav>
+<form method="post">
+      <label>Rechercher</label>
+      <input type="text" name="search">
+      <input type="submit" name="submit">
+    </form>
+
+    <?php
+    
+    if (isset($_POST["submit"])) {
+      $str = $_POST["search"];
+      $sth = $bdd->prepare("SELECT * FROM products WHERE name = '$str'");
+
+      $sth->setFetchMode(PDO:: FETCH_OBJ);
+      $sth-> execute();
+
+      if($row = $sth->fetch())
+      {
+        ?>
+        <br><br><br>
+        <table>
+           <tr>
+             <th>name</th>
+             <th>description</th>
+           </tr>
+            <tr>
+              <td><?php echo $row->name; ?></td>
+              <td><?php echo $row->description; ?></td>
+            </tr>
+      </table>
+    <?php  
+    }
+      
+      else {
+        echo "Product does not exist";
+      }
+    }
+    ?>
+</div>
+</nav>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

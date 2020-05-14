@@ -1,3 +1,17 @@
+<?php
+try
+{
+	$bdd = new PDO('mysql:host=127.0.0.1;dbname=product-hunt;charset=utf8',
+                   'root',
+                   '',
+                   array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+}
+catch (Exception $e)
+{
+    die('Erreur : ' . $e->getMessage());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,6 +56,50 @@
                 <a class="dropdown-item" href="product-list.php">Liste des produits mis en avant</a>
               </div>
             </li>
+
+            <!-- --------------------BARRE DE RECHERCHE------------------------ -->
+
+          </ul>
+
+<form method="post">
+      <label>Rechercher</label>
+      <input type="text" name="search">
+      <input type="submit" name="submit">
+    </form>
+
+    <?php
+    
+    if (isset($_POST["submit"])) {
+      $str = $_POST["search"];
+      $sth = $bdd->prepare("SELECT * FROM products WHERE name = '$str'");
+
+      $sth->setFetchMode(PDO:: FETCH_OBJ);
+      $sth-> execute();
+
+      if($row = $sth->fetch())
+      {
+        ?>
+        <br><br><br>
+        <table>
+           <tr>
+             <th>name</th>
+             <th>description</th>
+           </tr>
+            <tr>
+              <td><?php echo $row->name; ?></td>
+              <td><?php echo $row->description; ?></td>
+            </tr>
+      </table>
+    <?php  
+    }
+      
+      else {
+        echo "Product does not exist";
+      }
+    }
+    ?>
+    </div>
+    </nav>
 
             <!-- ----------------------------------------------------------------- -->
 
