@@ -11,6 +11,10 @@ catch (Exception $e)
     die('Erreur : ' . $e->getMessage());
 }
 
+$reponse = $bdd->query('SELECT * FROM `products`');
+
+$donnees = $reponse->fetchAll();
+
 ?>
 
 
@@ -121,8 +125,8 @@ catch (Exception $e)
             <div class="card">
             <img class="card-img-top" src="Library/mask1.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Urban Air Mask 2.0</h5>
-                <p class="card-text"><ul>Sobre, efficace et flexible, l’Urban Air Mask 2.0 combine les qualités scandinaves avec succès. Offrant d’excellentes prestations et facile à porter, le dernier produit d’Airinum est idéal pour les citadins qui n’en peuvent plus de respirer un air chargé de particules et de mauvaises odeurs.</p>
+                <h5 class="card-title"><?php echo var_export($donnees[0]['name'], true);?></h5>
+                <p class="card-text"><ul><?php echo var_export($donnees[0]['description'], true);?></strong></ul>
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
             <div class="card-footer">
@@ -132,9 +136,8 @@ catch (Exception $e)
             <div class="card">
             <img class="card-img-top" src="Library/mask2.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Mask Generation</h5>
-                <p class="card-text"><ul>C'est dans l'optique de proposer aux français un masque de protection efficace, confortable, réutilisable et abordable que l'entreprise Mask Generation  a créé Le Mask Français.
-                Un masque 100% Made in France à un tarif bien plus abordable que le masque haut de gamme déjà proposé par la marque (le Sirocco), puisqu'il est disponible sur le site LeMaskFrançais.com à 39€.</p>
+                <h5 class="card-title"><?php echo var_export($donnees[1]['name'], true);?></h5>
+                <p class="card-text"><ul><?php echo var_export($donnees[1]['description'], true);?></strong></ul>
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
             <div class="card-footer">
@@ -144,8 +147,8 @@ catch (Exception $e)
             <div class="card">
             <img class="card-img-top" src="Library/mask3.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">NanoHack</h5>
-                <p class="card-text"><ul>Le fabricant de matériaux d’impression 3D Copper3D vient de mettre en ligne un fichier STL open-source d’un masque N95, imprimable en 3D. Son initiative “Hack The Pandemic” est mondiale et vise à mobiliser tous les fabricants de machines, fablabs, services d’impression, etc. à créer ces masques dont le manque se fait ressentir dans les hôpitaux et chez les professionnels de santé.</p>
+                <h5 class="card-title"><?php echo var_export($donnees[2]['name'], true);?></h5>
+                <p class="card-text"><ul><?php echo var_export($donnees[2]['description'], true);?></p>
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
             <div class="card-footer">

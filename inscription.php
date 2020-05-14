@@ -16,11 +16,11 @@ $currentNickname = $_COOKIE["user_cookie"] ?? "";
 
 //afichage de TOUS les utilisateurs
 
-$allUsersStatement = $bdd->query('SELECT username FROM users');
+$allUsersStatement = $bdd->query('SELECT nom FROM infos');
     $allUsers = $allUsersStatement->fetchAll(PDO::FETCH_ASSOC);
 
      foreach($allUsers as $user) : ?>
-        <div><?=$user["username"]?></div>
+        <div><?=$user["nom"]?></div>
     <?php endforeach; ?>
 
 
@@ -131,7 +131,7 @@ $allUsersStatement = $bdd->query('SELECT username FROM users');
 
 <div>
 <form method="post">
-    <input type="text" placeholder="PSEUDO" name="username" value="<?=$currentNickname?>">
+    <input type="text" placeholder="PSEUDO" name="nom" value="<?=$currentNickname?>">
     <button type="submit" action="">
 </form>
 </div>
@@ -140,14 +140,14 @@ $allUsersStatement = $bdd->query('SELECT username FROM users');
 <?php
 
 
-if(!empty($_POST["username"])) {
-    $username = htmlspecialchars($_POST["username"]);
+if(!empty($_POST["nom"])) {
+    $username = htmlspecialchars($_POST["nom"]);
 
     setcookie('user_cookie', $username);
     $currentNickname = $username;
 
     // 0 : Je vérifie si le user existe déjà ou pas
-    $userStatement = $bdd->prepare('SELECT * FROM users WHERE username = ?');
+    $userStatement = $bdd->prepare('SELECT * FROM infos WHERE nom = ?');
     $userStatement->execute([$username]);
 
     $user = $userStatement->fetch(PDO::FETCH_ASSOC);
@@ -157,7 +157,7 @@ if(!empty($_POST["username"])) {
     }
     else {
         // 1 : J'insère le nouveau user
-        $insertUserStatement = $bdd->prepare('INSERT INTO users (username) VALUES (?)');
+        $insertUserStatement = $bdd->prepare('INSERT INTO infos (nom) VALUES (?)');
         $insertUserStatement->execute([$username]);
 
         // 2 : Je récupère le dernier ID généré du user

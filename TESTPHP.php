@@ -20,7 +20,7 @@ $reponse = $bdd->query('SELECT * FROM `products` WHERE 1');
 
 $donnees = $reponse->fetchAll();
 
-echo "<pre>" . var_export($donnees, true) . "</pre>";
+// echo "<pre>" . var_export($donnees, true) . "</pre>";
 
 echo "<br>";
 
