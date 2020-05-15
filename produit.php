@@ -113,23 +113,34 @@ catch (Exception $e)
     ?>
 </div>
 </nav>
+<div class="card-deck">
+  <?php
+      $selectProducts = $bdd->prepare('SELECT * FROM products');
+  $selectProducts->execute();
+  $products = $selectProducts->fetchAll(PDO::FETCH_ASSOC);
 
-<?php
-    $selectProducts = $bdd->prepare('SELECT * FROM products');
-$selectProducts->execute();
-$products = $selectProducts->fetchAll(PDO::FETCH_ASSOC);
+  //echo "<pre>";
+  //var_dump($products); exit;
 
-//echo "<pre>";
-//var_dump($products); exit;
-foreach($products as $product) { ?>
-    <div class="product">
-    <h2><?=$product['name']?></h2>
-    <p><?=$product['description']?></p>
-    <a href="<?=$product['url']?>"><?=$product['url']?></a>
-    <a href="/addups.php?id=<?=$product['id']?>"><?=$product['ups']?></a>
-     <!--récuperer le paramètre id sur addups.php : $_GET['id'] -->
+  foreach($products as $product) { ?>
+     
+
+      <div class="card">
+        <img class="card-img-top" src="<?php echo $product['image']?>" width="479" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $product['name'] ?></h5>
+            <p class="card-text"><ul><?php echo substr($product['description'], 0, 50); ?>...</ul></strong>
+          </div>
+        <div class="card-footer">
+          <a class="btn" href="addups.php?id=<?php echo $product["id"]?>">
+            <small class="text-muted"><?php echo $product['ups'] ?></small>
+          </a>
+        </div>
+      </div>
+
+
+  <?php } ?>
 </div>
-<?php } ?>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

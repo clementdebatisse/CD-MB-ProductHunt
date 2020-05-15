@@ -1,3 +1,18 @@
+<?php
+try
+{
+	$bdd = new PDO('mysql:host=127.0.0.1;dbname=product-hunt;charset=utf8',
+                   'root',
+                   '',
+                   array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+}
+catch (Exception $e)
+{
+    die('Erreur : ' . $e->getMessage());
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,6 +102,38 @@
     </div>
     </nav>
 
+    <?php
+
+
+if(!empty($_POST["nom"])) {
+    $username = htmlspecialchars($_POST["nom"]);
+
+    setcookie('user_cookie', $username);
+    $currentNickname = $username;
+
+    // 0 : Je vérifie si le user existe déjà ou pas
+    $userStatement = $bdd->prepare('SELECT * FROM infos WHERE nom = ?');
+    $userStatement->execute([$username]);
+
+    $user = $userStatement->fetch(PDO::FETCH_ASSOC);
+
+    if($user) {
+        $userId = $user["id"];
+    }
+    else {
+        // 1 : J'insère le nouveau user
+        $insertUserStatement = $bdd->prepare('INSERT INTO infos (nom) VALUES (?)');
+        $insertUserStatement->execute([$username]);
+
+        // 2 : Je récupère le dernier ID généré du user
+        $userId = $bdd->lastInsertId();
+    }
+
+}
+
+
+?>
+
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
@@ -97,7 +144,7 @@
     </div>
 
     <!-- Login Form -->
-    <form>
+    <form method="post">
       <input type="text" id="login" class="fadeIn second" name="nom" placeholder="Nom d'utilisateur">
       <input type="submit" class="fadeIn fourth" value="Se connecter">
     </form>
