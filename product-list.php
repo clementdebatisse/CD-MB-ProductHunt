@@ -125,8 +125,8 @@ $donnees = $reponse->fetchAll();
             <div class="card">
             <img class="card-img-top" src="Library/mask1.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title"><?php echo var_export($donnees[0]['name'], true);?></h5>
-                <p class="card-text"><ul><?php echo var_export($donnees[0]['description'], true);?></strong></ul>
+                <h5 class="card-title"><?php echo $donnees[0]['name'];?></h5>
+                <p class="card-text"><ul><?php echo $donnees[0]['description'];?></strong></ul>
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
             <div class="card-footer">
@@ -136,8 +136,8 @@ $donnees = $reponse->fetchAll();
             <div class="card">
             <img class="card-img-top" src="Library/mask2.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title"><?php echo var_export($donnees[1]['name'], true);?></h5>
-                <p class="card-text"><ul><?php echo var_export($donnees[1]['description'], true);?></strong></ul>
+                <h5 class="card-title"><?php echo $donnees[0]['name'];?></h5>
+                <p class="card-text"><ul><?php echo $donnees[0]['description'];?></strong></ul>
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
             <div class="card-footer">
@@ -147,8 +147,8 @@ $donnees = $reponse->fetchAll();
             <div class="card">
             <img class="card-img-top" src="Library/mask3.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title"><?php echo var_export($donnees[2]['name'], true);?></h5>
-                <p class="card-text"><ul><?php echo var_export($donnees[2]['description'], true);?></p>
+                <h5 class="card-title"><?php echo $donnees[0]['name'];?></h5>
+                <p class="card-text"><ul><?php echo $donnees[0]['description'];?></p>
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
             <div class="card-footer">
@@ -202,17 +202,6 @@ $selectProducts = $bdd->prepare('SELECT * FROM products');
 $selectProducts->execute();
 $products = $selectProducts->fetchAll(PDO::FETCH_ASSOC);
 
-//echo "<pre>";
-//var_dump($products); exit;
-foreach($products as $product) { ?>
-    <div class="product">
-    <h2><?=$product['name']?></h2>
-    <p><?=$product['description']?></p>
-    <a href="<?=$product['url']?>"><?=$product['url']?></a>
-    <a href="/addups.php?id=<?=$product['id']?>"><?=$product['ups']?></a>
-     <!--récuperer le paramètre id sur addups.php : $_GET['id'] -->
-</div>
-<?php } 
 
 ?>
     
