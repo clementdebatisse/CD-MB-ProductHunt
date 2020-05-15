@@ -136,13 +136,8 @@ $donnees = $reponse->fetchAll();
             <div class="card">
             <img class="card-img-top" src="Library/mask2.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
-<<<<<<< HEAD
-                <h5 class="card-title"><?php echo $donnees[0]['name'];?></h5>
-                <p class="card-text"><ul><?php echo $donnees[0]['description'];?></strong></ul>
-=======
                 <h5 class="card-title"><?php echo $donnees[1]['name']?></h5>
                 <p class="card-text"><ul><?php echo $donnees[1]['description'];?></strong></ul>
->>>>>>> 6f2e82a86c296207894123fd7cad9019bb71eb5d
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
             <div class="card-footer">
@@ -152,13 +147,8 @@ $donnees = $reponse->fetchAll();
             <div class="card">
             <img class="card-img-top" src="Library/mask3.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
-<<<<<<< HEAD
-                <h5 class="card-title"><?php echo $donnees[0]['name'];?></h5>
-                <p class="card-text"><ul><?php echo $donnees[0]['description'];?></p>
-=======
                 <h5 class="card-title"><?php echo $donnees[2]['name'];?></h5>
                 <p class="card-text"><ul><?php echo $donnees[2]['description'];?></p>
->>>>>>> 6f2e82a86c296207894123fd7cad9019bb71eb5d
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
             <div class="card-footer">
