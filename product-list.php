@@ -136,8 +136,13 @@ $donnees = $reponse->fetchAll();
             <div class="card">
             <img class="card-img-top" src="Library/mask2.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
+<<<<<<< HEAD
                 <h5 class="card-title"><?php echo $donnees[0]['name'];?></h5>
                 <p class="card-text"><ul><?php echo $donnees[0]['description'];?></strong></ul>
+=======
+                <h5 class="card-title"><?php echo $donnees[1]['name']?></h5>
+                <p class="card-text"><ul><?php echo $donnees[1]['description'];?></strong></ul>
+>>>>>>> 6f2e82a86c296207894123fd7cad9019bb71eb5d
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
             <div class="card-footer">
@@ -147,8 +152,13 @@ $donnees = $reponse->fetchAll();
             <div class="card">
             <img class="card-img-top" src="Library/mask3.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
+<<<<<<< HEAD
                 <h5 class="card-title"><?php echo $donnees[0]['name'];?></h5>
                 <p class="card-text"><ul><?php echo $donnees[0]['description'];?></p>
+=======
+                <h5 class="card-title"><?php echo $donnees[2]['name'];?></h5>
+                <p class="card-text"><ul><?php echo $donnees[2]['description'];?></p>
+>>>>>>> 6f2e82a86c296207894123fd7cad9019bb71eb5d
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
             <div class="card-footer">
@@ -163,9 +173,8 @@ $donnees = $reponse->fetchAll();
             <div class="card">
             <img class="card-img-top" src="Library/gloves1.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Gants militaires</h5>
-                <p class="card-text"><ul>Gant militaire à partir de 9€. Le gant est un accessoire de mode, un équipement de sport ou un élément de protection, recouvrant la main, utilisé pour se protéger notamment du froid, ou encore des écorchures et frottements.</p>
-                <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</ul></strong>
+                <h5 class="card-title"><?php echo $donnees[3]['name'];?></h5>
+                <p class="card-text"><ul><?php echo $donnees[3]['description'];?></ul></strong>
             </div>
             <div class="card-footer">
                 <small class="text-muted">Publié il y a une semaine </small>
@@ -174,8 +183,8 @@ $donnees = $reponse->fetchAll();
             <div class="card">
             <img class="card-img-top" src="Library/gloves2.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Gants en latex</h5>
-                <p class="card-text"><ul>Gants à usage unique en latex étanche, ultra fins. Très grande souplesse, effet seconde peau garantie. Pour risques mineurs uniquement.</p>
+                <h5 class="card-title"><?php echo $donnees[4]['name'];?></h5>
+                <p class="card-text"><ul><?php echo $donnees[4]['description'];?></p>
                 <p class="partnerLink"><strong>Cliquez sur le produit pour être redirigé vers notre partenaire</ul></strong></p>
             </div>
             <div class="card-footer">
@@ -185,8 +194,8 @@ $donnees = $reponse->fetchAll();
             <div class="card">
             <img class="card-img-top" src="Library/gloves3.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Gants médicaux</h5>
-                <p class="card-text"><ul>Les gants médicaux sont des consommables médicaux indispensables à tous les professionnels de santé, utilisés dans les cabinets médicaux, les hôpitaux... Ces gants sont à usage unique et permettent de protéger le patient et le soignant des infections pouvant se transmettre par contact.</p>
+                <h5 class="card-title"><?php echo $donnees[5]['name'];?></h5>
+                <p class="card-text"><ul><?php echo $donnees[4]['description'];?></p>
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
             <div class="card-footer">

@@ -19,7 +19,7 @@ catch (Exception $e)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" type="text/css" href="loginStyle.css?version=51">
+    <link rel="stylesheet" type="text/css" href="loginStyle.css?version=52">
     <title>Login</title>
 </head>
 <body>
@@ -57,16 +57,18 @@ catch (Exception $e)
                 <a class="dropdown-item" href="product-list.php">Liste des produits mis en avant</a>
               </div>
             </li>
+          </ul>
+          
 
             <!-- --------------------BARRE DE RECHERCHE------------------------ -->
 
-          </ul>
+          
 
-<form method="post">
+<!-- <form method="post">
       <label>Rechercher</label>
       <input type="text" name="search">
       <input type="submit" name="submit">
-    </form>
+    </form> -->
 
     <?php
     
@@ -104,6 +106,7 @@ catch (Exception $e)
 
     <?php
 
+    //  -------------------------------------------------------------- 
 
 if(!empty($_POST["nom"])) {
     $username = htmlspecialchars($_POST["nom"]);
@@ -131,7 +134,6 @@ if(!empty($_POST["nom"])) {
 
 }
 
-
 ?>
 
 <div class="wrapper fadeInDown">
@@ -146,9 +148,16 @@ if(!empty($_POST["nom"])) {
     <!-- Login Form -->
     <form method="post">
       <input type="text" id="login" class="fadeIn second" name="nom" placeholder="Nom d'utilisateur">
-      <input type="submit" class="fadeIn fourth" value="Se connecter">
+      <input type="submit" class="fadeIn fourth" name="forminscription" value="Se connecter">
     </form>
 
+    <?php 
+    if(isset($_POST['forminscription']))
+{
+    echo "<h2>Vous êtes connecté.e ".$username.", bonjour &#128513</h2>";
+}
+
+    ?>
 
   </div>
 </div>
