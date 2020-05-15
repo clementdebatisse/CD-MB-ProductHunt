@@ -1,9 +1,3 @@
-
-
-<!-- ATTENTION ATTENTION ATTENTION CECI EST LA PAGE D INSCRIPTION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-
-
-
 <?php
 try
 {
@@ -110,37 +104,10 @@ catch (Exception $e)
     </div>
     </nav>
 
-    <?php
+ 
 
-    //  -------------------------------------------------------------- 
+ <!-- ------------------------------------------------------ -->
 
-if(!empty($_POST["nom"])) {
-    $username = htmlspecialchars($_POST["nom"]);
-
-    setcookie('user_cookie', $username);
-    $currentNickname = $username;
-
-    // 0 : Je vérifie si le user existe déjà ou pas
-    $userStatement = $bdd->prepare('SELECT * FROM infos WHERE nom = ?');
-    $userStatement->execute([$username]);
-
-    $user = $userStatement->fetch(PDO::FETCH_ASSOC);
-
-    if($user) {
-        $userId = $user["id"];
-    }
-    else {
-        // 1 : J'insère le nouveau user
-        $insertUserStatement = $bdd->prepare('INSERT INTO infos (nom) VALUES (?)');
-        $insertUserStatement->execute([$username]);
-
-        // 2 : Je récupère le dernier ID généré du user
-        $userId = $bdd->lastInsertId();
-    }
-
-}
-
-?>
 
 <div class="wrapper fadeInDown">
   <div id="formContent">
@@ -153,21 +120,46 @@ if(!empty($_POST["nom"])) {
 
     <!-- Login Form -->
     <form method="post">
-      <input type="text" id="login" class="fadeIn second" name="nom" placeholder="Nom d'utilisateur">
-      <input type="submit" class="fadeIn fourth" name="forminscription" value="Se connecter">
+      <input type="text" id="login" class="fadeIn second" name="nomconnect" placeholder="Nom d'utilisateur">
+      <input type="submit" class="fadeIn fourth" name="formconnexion" value="Se connecter">
     </form>
 
-  <?php 
-    if(!empty($_POST['nom']))
+<h2>
+<?php 
+
+if(!empty($_POST['formconnexion']))
+
+    $nomconnect = htmlspecialchars($_POST['nomconnect']);
+    if(!empty($nomconnect))
     {
-        echo "<h2>Vous êtes connecté.e ".$username.", bonjour &#128513</h2>";
+        $requser = 
+    }
+
+
+
+
+    {
+        $userinfo = $requser->fetch();
+        $_SESSION['id'] = $userinfo['id'];
+        $_SESSION['nom'] = $userinfo['nom'];
+        header("Location: index.php?id=")
     }
     else
     {
-      echo "Pseudo manquant &#128531";
+        echo "Utilisateur inconnu &#128563";
     }
 
-  ?>
+    }
+    if (empty($_POST['nomconnect']))
+    {
+        echo "Pseudo manquant &#128531";
+    
+}
+
+
+?>
+</h2>
+
 
   </div>
 </div>
