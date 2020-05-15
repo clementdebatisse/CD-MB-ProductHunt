@@ -25,7 +25,7 @@ catch (Exception $e)
 <body>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"><img src="Library/simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
+            <a class="navbar-brand" href="index.php"><img src="Library/simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -39,7 +39,7 @@ catch (Exception $e)
                 <!-- Doit redigirer vers une page ou user peut se connecter -->
     
                 <li class="nav-item">
-                  <a class="nav-link" href="inscription.php">Se connecter</a>
+                  <a class="nav-link" href="login.php">Se connecter</a>
     
                 <!-- ---------------------------------------------------------- -->
     
@@ -59,14 +59,6 @@ catch (Exception $e)
                 </li>
     
                 <!-- ----------------------------------------------------------------- -->
-    
-                <!-- Ajouter qlq chose ici ? si on veut -->
-    
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-    
-                <!-- -------------------------------------------- -->
     
               </ul>
     
@@ -122,25 +114,28 @@ catch (Exception $e)
   //echo "<pre>";
   //var_dump($products); exit;
 
-   
   foreach($products as $product) { 
 
- 
-   ?>
+ ?>
+   
 
-     
-
-      <div class="card">
-        <img class="card-img-top" src="<?php echo $product['image']?>" width="479" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title"><?php echo $product['name'] ?></h5>
-            <p class="card-text"><ul><?php echo substr($product['description'], 0, 50); ?>...</ul></strong>
-          </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 d-flex align-items-stretch">
+           <div class="card">
+           <img class="card-img-top" src="<?php echo $product['image']?>" width="479" alt="Card image cap">
+            <div class="card-body">
+             <h5 class="card-title"><?php echo $product['name'] ?></h5>
+             <p class="card-text"><ul><?php echo substr($product['description'], 0, 70); ?>...</ul></strong>
+            </div>
         <div class="card-footer">
           <a class="btn btn-link" href="addups.php?id=<?php echo $product["id"]?>">
-            <small class="text-muted"><?php echo $product['ups'] ?></small>
+            <small class="text-muted">Votez pour ce produit </br> <?php echo $product['ups'] ?></small>
           </a>
         </div>
+      </div>
+      </div>
+      </div>
       </div>
 
 

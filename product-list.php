@@ -30,7 +30,7 @@ $donnees = $reponse->fetchAll();
 <body>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"><img src="Library/simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
+            <a class="navbar-brand" href="index.php"><img src="Library/simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -44,7 +44,7 @@ $donnees = $reponse->fetchAll();
                 <!-- Doit redigirer vers une page ou user peut se connecter -->
     
                 <li class="nav-item">
-                  <a class="nav-link" href="inscription.php">Se connecter</a>
+                  <a class="nav-link" href="login.php">Se connecter</a>
     
                 <!-- ---------------------------------------------------------- -->
     
@@ -65,13 +65,7 @@ $donnees = $reponse->fetchAll();
     
                 <!-- ----------------------------------------------------------------- -->
     
-                <!-- Ajouter qlq chose ici ? si on veut -->
-    
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-    
-                <!-- -------------------------------------------- -->
+                
     
               </ul>
     
@@ -136,13 +130,8 @@ $donnees = $reponse->fetchAll();
             <div class="card">
             <img class="card-img-top" src="Library/mask2.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
-<<<<<<< HEAD
-                <h5 class="card-title"><?php echo $donnees[0]['name'];?></h5>
-                <p class="card-text"><ul><?php echo $donnees[0]['description'];?></strong></ul>
-=======
-                <h5 class="card-title"><?php echo $donnees[1]['name']?></h5>
+                <h5 class="card-title"><?php echo $donnees[1]['name'];?></h5>
                 <p class="card-text"><ul><?php echo $donnees[1]['description'];?></strong></ul>
->>>>>>> 6f2e82a86c296207894123fd7cad9019bb71eb5d
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
             <div class="card-footer">
@@ -152,13 +141,8 @@ $donnees = $reponse->fetchAll();
             <div class="card">
             <img class="card-img-top" src="Library/mask3.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
-<<<<<<< HEAD
-                <h5 class="card-title"><?php echo $donnees[0]['name'];?></h5>
-                <p class="card-text"><ul><?php echo $donnees[0]['description'];?></p>
-=======
                 <h5 class="card-title"><?php echo $donnees[2]['name'];?></h5>
                 <p class="card-text"><ul><?php echo $donnees[2]['description'];?></p>
->>>>>>> 6f2e82a86c296207894123fd7cad9019bb71eb5d
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
             <div class="card-footer">
