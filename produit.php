@@ -115,14 +115,19 @@ catch (Exception $e)
 </nav>
 <div class="card-deck">
   <?php
-      $selectProducts = $bdd->prepare('SELECT * FROM products');
+      $selectProducts = $bdd->prepare('SELECT * FROM products ORDER BY ups DESC');
   $selectProducts->execute();
   $products = $selectProducts->fetchAll(PDO::FETCH_ASSOC);
 
   //echo "<pre>";
   //var_dump($products); exit;
 
-  foreach($products as $product) { ?>
+   
+  foreach($products as $product) { 
+
+ 
+   ?>
+
      
 
       <div class="card">
@@ -132,7 +137,7 @@ catch (Exception $e)
             <p class="card-text"><ul><?php echo substr($product['description'], 0, 50); ?>...</ul></strong>
           </div>
         <div class="card-footer">
-          <a class="btn" href="addups.php?id=<?php echo $product["id"]?>">
+          <a class="btn btn-link" href="addups.php?id=<?php echo $product["id"]?>">
             <small class="text-muted"><?php echo $product['ups'] ?></small>
           </a>
         </div>
