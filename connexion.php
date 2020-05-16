@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 try
 {
 	$bdd = new PDO('mysql:host=127.0.0.1;dbname=product-hunt;charset=utf8',
@@ -132,29 +134,51 @@ if(!empty($_POST['formconnexion']))
     $nomconnect = htmlspecialchars($_POST['nomconnect']);
     if(!empty($nomconnect))
     {
-        $requser = 
-    }
+        $requser = $bdd->prepare("SELECT * FROM infos WHERE nom = ?");
+        $requser->execute(array($nomconnect));
+        $userexist = $requser->rowCount();
+        if($userexist == 1)
+        {
+            $userinfo = $requser->fetch();
+            $_SESSION['id'] = $userinfo['id'];
+            $_SESSION['nom'] = $userinfo['nom'];
+            header("Location: index.php?id=".$_SESSION['id']);
 
-
-
-
-    {
-        $userinfo = $requser->fetch();
-        $_SESSION['id'] = $userinfo['id'];
-        $_SESSION['nom'] = $userinfo['nom'];
-        header("Location: index.php?id=")
+        }
+        else
+        {
+            echo "Utilisateur introuvable &#128550";
+        }
     }
     else
     {
-        echo "Utilisateur inconnu &#128563";
+        echo "Pseudo manquant &#128531";
     }
 
-    }
-    if (empty($_POST['nomconnect']))
-    {
-        echo "Pseudo manquant &#128531";
+
+
+
+
+
+
+
+//     {
+//         $userinfo = $requser->fetch();
+//         $_SESSION['id'] = $userinfo['id'];
+//         $_SESSION['nom'] = $userinfo['nom'];
+//         header("Location: index.php?id=")
+//     }
+//     else
+//     {
+//         echo "Utilisateur inconnu &#128563";
+//     }
+
+//     }
+//     if (empty($_POST['nomconnect']))
+//     {
+//         echo "Pseudo manquant &#128531";
     
-}
+// }
 
 
 ?>

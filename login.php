@@ -147,13 +147,17 @@ if(!empty($_POST["nom"])) {
     <!-- Login Form -->
     <form method="post">
       <input type="text" id="login" class="fadeIn second" name="nom" placeholder="Nom d'utilisateur">
-      <input type="submit" class="fadeIn fourth" name="forminscription" value="Se connecter">
+      <input type="submit" class="fadeIn fourth" name="forminscription" value="Inscription">
     </form>
 
   <?php 
+
+    $lienconnexion = "connexion.php";
+
     if(!empty($_POST['nom']))
     {
-        echo "<h2>Vous êtes connecté.e ".$username.", bonjour &#128513</h2>";
+        echo "<h2>Vous êtes inscrit.e ".$username.", bonjour &#128513</h2>";
+        echo "<h2><a href='$lienconnexion'>Se connecter</a></h2>";
     }
     else
     {

@@ -130,11 +130,7 @@ $donnees = $reponse->fetchAll();
             <div class="card">
             <img class="card-img-top" src="Library/mask2.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
-<<<<<<< HEAD
                 <h5 class="card-title"><?php echo $donnees[1]['name'];?></h5>
-=======
-                <h5 class="card-title"><?php echo $donnees[1]['name']?></h5>
->>>>>>> 257a327c3533aa0bb7bb5cc18c3833f1df1950ab
                 <p class="card-text"><ul><?php echo $donnees[1]['description'];?></strong></ul>
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
@@ -163,6 +159,7 @@ $donnees = $reponse->fetchAll();
             <div class="card-body">
                 <h5 class="card-title"><?php echo $donnees[3]['name'];?></h5>
                 <p class="card-text"><ul><?php echo $donnees[3]['description'];?></ul></strong>
+                <p class="partnerLink"><strong>Cliquez sur le produit pour être redirigé vers notre partenaire</ul></strong></p>
             </div>
             <div class="card-footer">
                 <small class="text-muted">Publié il y a une semaine </small>
