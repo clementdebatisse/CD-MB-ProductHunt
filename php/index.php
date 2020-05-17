@@ -18,13 +18,15 @@ catch (Exception $e)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style1.css?version=51">
+    <link rel="stylesheet" type="text/css" href="../css/style1.css?version=55">
     <title>Product-Hunt</title>
 </head>
 <body>
 
+          <!-- ----------------------------Début NAVBAR------------------------------------------ -->
+
    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.php"><img src="Library/simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
+        <a class="navbar-brand" href="index.php"><img src="../Library/simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -37,14 +39,21 @@ catch (Exception $e)
 
             <!-- Doit redigirer vers une page ou user peut se connecter -->
 
-            <li class="nav-item">
-              <a class="nav-link" href="login.php">Se connecter</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Profil
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="connexion.php">Se connecter</a>
+                <a class="dropdown-item" href="inscription.php">S'inscrire</a>
+              </div>
+            </li>
 
             <!-- ---------------------------------------------------------- -->
 
             <!-- Rediriger vers les produits populaires, nouveaux, et tous les produits  -->
 
-            </li>
+            
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Produits proposés
@@ -101,7 +110,7 @@ catch (Exception $e)
     </div>
     </nav>
     
-            <!-- ----------------------------------------------------------------- -->
+            <!-- -----------------FIN NAVBAR--------------------- -->
       
       <!-- Carousel qui doit afficher 1 produit populaire et 1 nouveauté -->
       <!-- N'est pas responsive et devra l'être -->
@@ -115,24 +124,24 @@ catch (Exception $e)
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="Library/slide1.jpg" alt="First slide">
+            <img class="d-block w-100" src="../Library/slide1.jpg" alt="First slide">
             <div class="carousel-caption d-none d-md-block">
               <h5 class="carousel-title">Product-Hunt</h5>
               <p class="carousel-description">Le but de Product-Hunt Simplon est de ralier les meilleurs produits au marché</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="Library/slide2.jpg" alt="Second slide">
+            <img class="d-block w-100" src="../Library/slide2.jpg" alt="Second slide">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Système de vote</h5>
-              <p>Pour cela, nous avons instauré un système de vote par utilisateur</p>
+              <h5 class="carousel-title">Système de vote</h5>
+              <p class="carousel-description">Pour cela, nous avons instauré un système de vote par utilisateur</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="Library/slide3.jpg" alt="Third slide">
+            <img class="d-block w-100" src="../Library/slide3.jpg" alt="Third slide">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Mettre en avant les meilleurs produits</h5>
-              <p>Ainsi, les entreprises ainsi que les particuliers sont tenus au courant des meilleurs produits du moment</p>
+              <h5 class="carousel-title">Mettre en avant les meilleurs produits</h5>
+              <p class="carousel-description">Ainsi, les entreprises ainsi que les particuliers sont tenus au courant des meilleurs produits du moment</p>
             </div>
           </div>
         </div>

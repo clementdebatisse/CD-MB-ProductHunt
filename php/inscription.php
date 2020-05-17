@@ -25,13 +25,15 @@ catch (Exception $e)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" type="text/css" href="loginStyle.css?version=52">
-    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="../css/loginStyle.css?version=55">
+    <title>Inscription</title>
 </head>
 <body>
     
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.php"><img src="Library/simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
+          <!-- ----------------------------Début NAVBAR------------------------------------------ -->
+
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.php"><img src="../Library/simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -44,29 +46,78 @@ catch (Exception $e)
 
             <!-- Doit redigirer vers une page ou user peut se connecter -->
 
-            <li class="nav-item">
-              <a class="nav-link" href="login.php">Se connecter</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Profil
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="connexion.php">Se connecter</a>
+                <a class="dropdown-item" href="inscription.php">S'inscrire</a>
+              </div>
+            </li>
 
             <!-- ---------------------------------------------------------- -->
 
             <!-- Rediriger vers les produits populaires, nouveaux, et tous les produits  -->
 
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Produits proposés
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="produit.php">Produits les plus populaires</a>
-                    <a class="dropdown-item" href="#">Nouveautés</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="product-list.php">Liste des produits mis en avant</a>
-                  </div>
-                </li>
-              </ul>
-              
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Produits proposés
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="produit.php">Produits les plus populaires</a>
+                <a class="dropdown-item" href="#">Nouveautés</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="product-list.php">Liste des produits mis en avant</a>
+              </div>
+            </li>
 
             <!-- --------------------BARRE DE RECHERCHE------------------------ -->
+
+          </ul>
+
+<form method="post">
+      <label>Rechercher</label>
+      <input type="text" name="search">
+      <input type="submit" name="submit">
+    </form>
+
+    <?php
+    
+    if (isset($_POST["submit"])) {
+      $str = $_POST["search"];
+      $sth = $bdd->prepare("SELECT * FROM products WHERE name = '$str'");
+
+      $sth->setFetchMode(PDO:: FETCH_OBJ);
+      $sth-> execute();
+
+      if($row = $sth->fetch())
+      {
+        ?>
+        <br><br><br>
+        <table>
+           <tr>
+             <th>name</th>
+             <th>description</th>
+           </tr>
+            <tr>
+              <td><?php echo $row->name; ?></td>
+              <td><?php echo $row->description; ?></td>
+            </tr>
+      </table>
+    <?php  
+    }
+      
+      else {
+        echo "Product does not exist";
+      }
+    }
+    ?>
+    </div>
+    </nav>
+    
+            <!-- -----------------FIN NAVBAR--------------------- -->
 
     
     <?php
@@ -141,19 +192,23 @@ if(!empty($_POST["nom"])) {
 
     <!-- Icon -->
     <div class="fadeIn first">
-      <img src="Library/site logo.jpg" id="icon" alt="Logo" />
+      <img src="../Library/site logo.jpg" id="icon" alt="Logo" />
     </div>
 
     <!-- Login Form -->
     <form method="post">
       <input type="text" id="login" class="fadeIn second" name="nom" placeholder="Nom d'utilisateur">
-      <input type="submit" class="fadeIn fourth" name="forminscription" value="Se connecter">
+      <input type="submit" class="fadeIn fourth" name="forminscription" value="Inscription">
     </form>
 
   <?php 
+
+    $lienconnexion = "connexion.php";
+
     if(!empty($_POST['nom']))
     {
-        echo "<h2>Vous êtes connecté.e ".$username.", bonjour &#128513</h2>";
+        echo "<h2>Vous êtes inscrit.e ".$username.", bonjour &#128513</h2>";
+        echo "<h2><a href='$lienconnexion'>Se connecter</a></h2>";
     }
     else
     {

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 try
 {
 	$bdd = new PDO('mysql:host=127.0.0.1;dbname=product-hunt;charset=utf8',
@@ -19,13 +21,15 @@ catch (Exception $e)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" type="text/css" href="loginStyle.css?version=52">
-    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="../css/loginStyle.css?version=55">
+    <title>Connexion</title>
 </head>
 <body>
     
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img src="Library/simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
+          <!-- ----------------------------Début NAVBAR------------------------------------------ -->
+
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.php"><img src="../Library/simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,14 +42,21 @@ catch (Exception $e)
 
             <!-- Doit redigirer vers une page ou user peut se connecter -->
 
-            <li class="nav-item">
-              <a class="nav-link" href="inscription.php">Se connecter</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Profil
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="connexion.php">Se connecter</a>
+                <a class="dropdown-item" href="inscription.php">S'inscrire</a>
+              </div>
+            </li>
 
             <!-- ---------------------------------------------------------- -->
 
             <!-- Rediriger vers les produits populaires, nouveaux, et tous les produits  -->
 
-            </li>
+            
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Produits proposés
@@ -57,18 +68,16 @@ catch (Exception $e)
                 <a class="dropdown-item" href="product-list.php">Liste des produits mis en avant</a>
               </div>
             </li>
-          </ul>
-          
 
             <!-- --------------------BARRE DE RECHERCHE------------------------ -->
 
-          
+          </ul>
 
-<!-- <form method="post">
+<form method="post">
       <label>Rechercher</label>
       <input type="text" name="search">
       <input type="submit" name="submit">
-    </form> -->
+    </form>
 
     <?php
     
@@ -103,7 +112,8 @@ catch (Exception $e)
     ?>
     </div>
     </nav>
-
+    
+            <!-- -----------------FIN NAVBAR--------------------- -->
  
 
  <!-- ------------------------------------------------------ -->
@@ -115,7 +125,7 @@ catch (Exception $e)
 
     <!-- Icon -->
     <div class="fadeIn first">
-      <img src="Library/site logo.jpg" id="icon" alt="Logo" />
+      <img src="../Library/site logo.jpg" id="icon" alt="Logo" />
     </div>
 
     <!-- Login Form -->
@@ -132,29 +142,51 @@ if(!empty($_POST['formconnexion']))
     $nomconnect = htmlspecialchars($_POST['nomconnect']);
     if(!empty($nomconnect))
     {
-        $requser = 
-    }
+        $requser = $bdd->prepare("SELECT * FROM infos WHERE nom = ?");
+        $requser->execute(array($nomconnect));
+        $userexist = $requser->rowCount();
+        if($userexist == 1)
+        {
+            $userinfo = $requser->fetch();
+            $_SESSION['id'] = $userinfo['id'];
+            $_SESSION['nom'] = $userinfo['nom'];
+            header("Location: index.php?id=".$_SESSION['id']);
 
-
-
-
-    {
-        $userinfo = $requser->fetch();
-        $_SESSION['id'] = $userinfo['id'];
-        $_SESSION['nom'] = $userinfo['nom'];
-        header("Location: index.php?id=")
+        }
+        else
+        {
+            echo "Utilisateur introuvable &#128550";
+        }
     }
     else
     {
-        echo "Utilisateur inconnu &#128563";
+        echo "Pseudo manquant &#128531";
     }
 
-    }
-    if (empty($_POST['nomconnect']))
-    {
-        echo "Pseudo manquant &#128531";
+
+
+
+
+
+
+
+//     {
+//         $userinfo = $requser->fetch();
+//         $_SESSION['id'] = $userinfo['id'];
+//         $_SESSION['nom'] = $userinfo['nom'];
+//         header("Location: index.php?id=")
+//     }
+//     else
+//     {
+//         echo "Utilisateur inconnu &#128563";
+//     }
+
+//     }
+//     if (empty($_POST['nomconnect']))
+//     {
+//         echo "Pseudo manquant &#128531";
     
-}
+// }
 
 
 ?>

@@ -19,49 +19,54 @@ catch (Exception $e)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style1.css?version=56">
+    <link rel="stylesheet" type="text/css" href="../css/style1.css?version=55">
     <title>Product-Hunt</title>
 </head>
 <body>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="index.php"><img src="Library/simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="index.php">Page d'accueil <span class="sr-only">(current)</span></a>
-                </li>
-    
-                <!-- Doit redigirer vers une page ou user peut se connecter -->
-    
-                <li class="nav-item">
-                  <a class="nav-link" href="login.php">Se connecter</a>
-    
-                <!-- ---------------------------------------------------------- -->
-    
-                <!-- Rediriger vers les produits populaires, nouveaux, et tous les produits  -->
-    
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Produits proposés
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="produit.php">Produits les plus populaires</a>
-                    <a class="dropdown-item" href="#">Nouveautés</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="product-list.php">Liste des produits mis en avant</a>
-                  </div>
-                </li>
-    
-                <!-- ----------------------------------------------------------------- -->
-    
-              </ul>
-    
+          <!-- ----------------------------Début NAVBAR------------------------------------------ -->
+
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.php"><img src="../Library/simplon logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Product-Hunt</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.php">Page d'accueil <span class="sr-only">(current)</span></a>
+            </li>
+
+            <!-- Doit redigirer vers une page ou user peut se connecter -->
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Profil
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="connexion.php">Se connecter</a>
+                <a class="dropdown-item" href="inscription.php">S'inscrire</a>
+              </div>
+            </li>
+
+            <!-- ---------------------------------------------------------- -->
+
+            <!-- Rediriger vers les produits populaires, nouveaux, et tous les produits  -->
+
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Produits proposés
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="produit.php">Produits les plus populaires</a>
+                <a class="dropdown-item" href="#">Nouveautés</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="product-list.php">Liste des produits mis en avant</a>
+              </div>
+            </li>
+
             <!-- --------------------BARRE DE RECHERCHE------------------------ -->
 
           </ul>
@@ -103,6 +108,13 @@ catch (Exception $e)
       }
     }
     ?>
+    </div>
+    </nav>
+    
+            <!-- -----------------FIN NAVBAR--------------------- -->
+
+
+    
 </div>
 </nav>
 
