@@ -1,9 +1,3 @@
-
-
-<!-- ATTENTION ATTENTION ATTENTION CECI EST LA PAGE D INSCRIPTION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-
-
-
 <?php
 try
 {
@@ -24,12 +18,12 @@ catch (Exception $e)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" type="text/css" href="../css/loginStyle.css?version=55">
-    <title>Inscription</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/style1.css?version=55">
+    <title>Product-Hunt</title>
 </head>
 <body>
-    
+
           <!-- ----------------------------Début NAVBAR------------------------------------------ -->
 
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -99,7 +93,7 @@ catch (Exception $e)
         </br> </br>
             <tr>
               <td><?php echo $row->name; ?></td>
-              <td><a href="fiche-produit.php?id=<?php echo $row->id; ?>">Cliquez ici pour en savoir plus sur le produit !</a> </td>
+              <td><a href="fiche-produit.php?id=<?php echo $row->id;?>">Cliquez ici pour en savoir plus sur le produit !</a> </td>
             </tr>
       </table>
     <?php  
@@ -115,112 +109,51 @@ catch (Exception $e)
     
             <!-- -----------------FIN NAVBAR--------------------- -->
 
+
     
-    <?php
-    
-    if (isset($_POST["submit"])) {
-      $str = $_POST["search"];
-      $sth = $bdd->prepare("SELECT * FROM products WHERE name = '$str'");
-
-      $sth->setFetchMode(PDO:: FETCH_OBJ);
-      $sth-> execute();
-
-      if($row = $sth->fetch())
-      {
-        ?>
-        <br><br><br>
-        <table>
-           <tr>
-             <th>name</th>
-             <th>description</th>
-           </tr>
-            <tr>
-              <td><?php echo $row->name; ?></td>
-              <td><?php echo $row->description; ?></td>
-            </tr>
-      </table>
-    <?php  
-    }
-      
-      else {
-        echo "Product does not exist";
-      }
-    }
-    ?>
-    </div>
-    </nav>
-
-    <?php
-
-    //  -------------------------------------------------------------- 
-
-if(!empty($_POST["nom"])) {
-    $username = htmlspecialchars($_POST["nom"]);
-
-    setcookie('user_cookie', $username);
-    $currentNickname = $username;
-
-    // 0 : Je vérifie si le user existe déjà ou pas
-    $userStatement = $bdd->prepare('SELECT * FROM infos WHERE nom = ?');
-    $userStatement->execute([$username]);
-
-    $user = $userStatement->fetch(PDO::FETCH_ASSOC);
-
-    if($user) {
-        $userId = $user["id"];
-    }
-    else {
-        // 1 : J'insère le nouveau user
-        $insertUserStatement = $bdd->prepare('INSERT INTO infos (nom) VALUES (?)');
-        $insertUserStatement->execute([$username]);
-
-        // 2 : Je récupère le dernier ID généré du user
-        $userId = $bdd->lastInsertId();
-    }
-
-}
-
-?>
-
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
-
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="../Library/site logo.jpg" id="icon" alt="Logo" />
-    </div>
-
-    <!-- Login Form -->
-    <form method="post">
-      <input type="text" id="login" class="fadeIn second" name="nom" placeholder="Nom d'utilisateur">
-      <input type="submit" class="fadeIn fourth" name="forminscription" value="Inscription">
-    </form>
-
-  <?php 
-
-    $lienconnexion = "connexion.php";
-
-    if(!empty($_POST['nom']))
-    {
-        echo "<h2>Vous êtes inscrit.e ".$username.", bonjour &#128513</h2>";
-        echo "<h2><a href='$lienconnexion'>Se connecter</a></h2>";
-    }
-    else
-    {
-      echo "Pseudo manquant &#128531";
-    }
-
-  ?>
-
-  </div>
 </div>
+</nav>
 
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<!-- FIN DE LA BARRE DE RECHERCHE -->
+</br>
+
+  <?php
+      $selectProducts = $bdd->prepare('SELECT * FROM products ORDER BY id DESC');
+  $selectProducts->execute();
+  $products = $selectProducts->fetchAll(PDO::FETCH_ASSOC);
+
+  //echo "<pre>";
+  //var_dump($products); exit;
+
+  foreach($products as $product) { 
+   // $id = $_GET['id'];
+
+ ?>
+   
+   <div class="card col-8">
+      <a href="fiche-produit.php?id=<?php echo $product["id"]?>">
+        <div class="d-flex flex-row">
+          <img class="card-img-top img-thumbnail" src="<?php echo $product['image']?>" style="width: 400px; height: 200px;">
+           <div class="card-body" style="color: black;">
+             <h5 class="card-title"><?php echo $product['name'] ?></h5>
+             <p class="card-text"><ul><?php echo substr($product['description'], 0, 120); ?>...</ul></strong>
+           </div>
+             <div class="card-footer">
+              <a class="btn btn-primary btn-lg btn-block" href="addups.php?id=<?php echo $product["id"]?>">
+              <small class="text-white">Votez pour ce produit </br> <?php echo $product['ups'] ?><strong> votes !</strong></small>
+              </a>
+             </div>
+             </a>
+           </div>
+           </div>
+           </br>
+
+
+  <?php } ?>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 </html>

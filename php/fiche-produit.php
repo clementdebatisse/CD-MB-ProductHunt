@@ -52,7 +52,7 @@ catch (Exception $e)
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="produit.php">Produits les plus populaires</a>
-                    <a class="dropdown-item" href="#">Nouveautés</a>
+                    <a class="dropdown-item" href="nouveautes.php">Nouveautés</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="product-list.php">Liste des produits mis en avant</a>
                   </div>
@@ -118,8 +118,9 @@ $id = $_GET['id'];
   
                 <div class="container">
                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-xs-12 prods-img">
-                    <div class="card" style= "margin-left: 300px;">
+                    <div class="card" style= "margin-left: 300px; width: 500px; height: 700px;">
                         <img class="card-img-top img-fluid" src="<?php echo $donnees['image']?>" alt="Card image cap">
+                        <a href="<?php echo $donnees['url']?>" style="text-align: center; background-color: black; color: white;">Visiter le site marchand</a>
                         <div class="card-body">
                         <h5 class="card-title"><?php echo $donnees['name']; ?></h5>
                         <p class="card-text"><?php echo $donnees['description']; ?></p>

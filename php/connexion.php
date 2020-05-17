@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 try
 {
 	$bdd = new PDO('mysql:host=127.0.0.1;dbname=product-hunt;charset=utf8',
@@ -63,7 +64,7 @@ catch (Exception $e)
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="produit.php">Produits les plus populaires</a>
-                <a class="dropdown-item" href="#">Nouveautés</a>
+                <a class="dropdown-item" href="nouveautes.php">Nouveautés</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="product-list.php">Liste des produits mis en avant</a>
               </div>

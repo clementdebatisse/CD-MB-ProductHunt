@@ -66,7 +66,7 @@ $donnees = $reponse->fetchAll();
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="produit.php">Produits les plus populaires</a>
-                <a class="dropdown-item" href="#">Nouveautés</a>
+                <a class="dropdown-item" href="nouveautes.php">Nouveautés</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="product-list.php">Liste des produits mis en avant</a>
               </div>
@@ -117,10 +117,10 @@ $donnees = $reponse->fetchAll();
         <!-- Liste des produits, avec description, notes, liens etc etc..... -->
 
         <div class="card-deck">
-          <a href="fiche-produit.php?id=0">
+          <a href="fiche-produit.php?id=1">
             <div class="card">
             <img class="card-img-top" src="../Library/mask1.jpg" width=479.328px height=296.484px alt="Card image cap">
-            <div class="card-body">
+            <div class="card-body" style="color: black;">
                 <h5 class="card-title"><?php echo $donnees[0]['name'];?></h5>
                 </a>
                 <p class="card-text"><ul><?php echo $donnees[0]['description'];?></strong></ul>
@@ -131,7 +131,7 @@ $donnees = $reponse->fetchAll();
             </div>
             </a>
             </div>
-            <a href="fiche-produit.php?id=1">
+            <a href="fiche-produit.php?id=2">
             <div class="card">
             <img class="card-img-top" src="../Library/mask2.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
@@ -144,7 +144,7 @@ $donnees = $reponse->fetchAll();
                 <small class="text-muted">Publié il y a 5 jours</small>
             </div>
             </div>
-            <a href="fiche-produit.php?id=2">
+            <a href="fiche-produit.php?id=3">
             <div class="card">
             <img class="card-img-top" src="../Library/mask3.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
@@ -162,7 +162,7 @@ $donnees = $reponse->fetchAll();
         <br />
 
         <div class="card-deck">
-         <a href="fiche-produit.php?id=3">
+         <a href="fiche-produit.php?id=4">
             <div class="card">
             <img class="card-img-top" src="../Library/gloves1.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
@@ -175,7 +175,7 @@ $donnees = $reponse->fetchAll();
                 <small class="text-muted">Publié il y a une semaine </small>
             </div>
             </div>
-            <a href="fiche-produit.php?id=4">
+            <a href="fiche-produit.php?id=5">
             <div class="card">
             <img class="card-img-top" src="../Library/gloves2.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
@@ -189,7 +189,7 @@ $donnees = $reponse->fetchAll();
             </div>
             </div>
             <div class="card">
-              <a href="fiche-produit.php?id=5">
+              <a href="fiche-produit.php?id=6">
             <img class="card-img-top" src="../Library/gloves3.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $donnees[5]['name'];?></h5>

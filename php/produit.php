@@ -61,7 +61,7 @@ catch (Exception $e)
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="produit.php">Produits les plus populaires</a>
-                <a class="dropdown-item" href="#">Nouveautés</a>
+                <a class="dropdown-item" href="nouveautes.php">Nouveautés</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="product-list.php">Liste des produits mis en avant</a>
               </div>
@@ -133,13 +133,13 @@ catch (Exception $e)
    <div class="card col-8">
       <a href="fiche-produit.php?id=<?php echo $product["id"]?>">
         <div class="d-flex flex-row">
-          <img class="card-img-top img-thumbnail" src="<?php echo $product['image']?>" style="width: 200px; height: 200px;">
-           <div class="card-body">
+          <img class="card-img-top img-thumbnail" src="<?php echo $product['image']?>" style="width: 400px; height: 200px;">
+           <div class="card-body" style="color: black;">
              <h5 class="card-title"><?php echo $product['name'] ?></h5>
              <p class="card-text"><ul><?php echo substr($product['description'], 0, 120); ?>...</ul></strong>
            </div>
              <div class="card-footer">
-              <a class="btn btn-primary btn-lg btn-block" href="addups.php?id=<?php echo $product["id"]?>">
+              <a class="btn btn-primary btn-lg" href="addups.php?id=<?php echo $product["id"]?>">
               <small class="text-white">Votez pour ce produit </br> <?php echo $product['ups'] ?><strong> votes !</strong></small>
               </a>
              </div>
