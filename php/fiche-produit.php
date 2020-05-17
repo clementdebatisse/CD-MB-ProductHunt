@@ -124,7 +124,7 @@ $id = $_GET['id'];
                         <div class="card-body">
                         <h5 class="card-title"><?php echo $donnees['name']; ?></h5>
                         <p class="card-text"><?php echo $donnees['description']; ?></p>
-                        <a class="btn btn-primary btn-lg btn-block" href="addups.php?id=">
+                        <a class="btn btn-primary btn-lg btn-block" href="addups.php?id=<?php echo $donnees["id"]?>">
                         <small class="text-white">Votez pour ce produit </br> <?php echo $donnees['ups'] ?> <strong> votes ! </strong></small>
                         </a>
                     </div>
