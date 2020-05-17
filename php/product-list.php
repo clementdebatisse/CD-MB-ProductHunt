@@ -94,15 +94,11 @@ $donnees = $reponse->fetchAll();
       if($row = $sth->fetch())
       {
         ?>
-        <br><br><br>
         <table>
-           <tr>
-             <th>name</th>
-             <th>description</th>
-           </tr>
+        </br> </br>
             <tr>
               <td><?php echo $row->name; ?></td>
-              <td><?php echo $row->description; ?></td>
+              <td><a href="fiche-produit.php?id=<?php echo $row->id; ?>">Cliquez ici pour en savoir plus sur le produit !</a> </td>
             </tr>
       </table>
     <?php  
@@ -135,10 +131,12 @@ $donnees = $reponse->fetchAll();
             </div>
             </a>
             </div>
+            <a href="fiche-produit.php?id=1">
             <div class="card">
             <img class="card-img-top" src="../Library/mask2.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $donnees[1]['name'];?></h5>
+                </a>
                 <p class="card-text"><ul><?php echo $donnees[1]['description'];?></strong></ul>
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
@@ -146,6 +144,7 @@ $donnees = $reponse->fetchAll();
                 <small class="text-muted">Publié il y a 5 jours</small>
             </div>
             </div>
+            <a href="fiche-produit.php?id=2">
             <div class="card">
             <img class="card-img-top" src="../Library/mask3.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
@@ -163,6 +162,7 @@ $donnees = $reponse->fetchAll();
         <br />
 
         <div class="card-deck">
+         <a href="fiche-produit.php?id=3">
             <div class="card">
             <img class="card-img-top" src="../Library/gloves1.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
@@ -175,6 +175,7 @@ $donnees = $reponse->fetchAll();
                 <small class="text-muted">Publié il y a une semaine </small>
             </div>
             </div>
+            <a href="fiche-produit.php?id=4">
             <div class="card">
             <img class="card-img-top" src="../Library/gloves2.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">

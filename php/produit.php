@@ -89,15 +89,11 @@ catch (Exception $e)
       if($row = $sth->fetch())
       {
         ?>
-        <br><br><br>
         <table>
-           <tr>
-             <th>name</th>
-             <th>description</th>
-           </tr>
+        </br> </br>
             <tr>
               <td><?php echo $row->name; ?></td>
-              <td><?php echo $row->description; ?></td>
+              <td><a href="fiche-produit.php?id=<?php echo $row->id;?>">Cliquez ici pour en savoir plus sur le produit !</a> </td>
             </tr>
       </table>
     <?php  
@@ -130,18 +126,19 @@ catch (Exception $e)
   //var_dump($products); exit;
 
   foreach($products as $product) { 
+   // $id = $_GET['id'];
 
  ?>
    
    <div class="card col-8">
-      <a href="fiche-produit.php?id=">
+      <a href="fiche-produit.php?id=<?php echo $product["id"]?>">
         <div class="d-flex flex-row">
           <img class="card-img-top img-thumbnail" src="<?php echo $product['image']?>" style="width: 200px; height: 200px;">
            <div class="card-body">
              <h5 class="card-title"><?php echo $product['name'] ?></h5>
              <p class="card-text"><ul><?php echo substr($product['description'], 0, 120); ?>...</ul></strong>
            </div>
-             <div class="card-footer d-flex flex-column-reverse">
+             <div class="card-footer">
               <a class="btn btn-primary btn-lg btn-block" href="addups.php?id=<?php echo $product["id"]?>">
               <small class="text-white">Votez pour ce produit </br> <?php echo $product['ups'] ?><strong> votes !</strong></small>
               </a>

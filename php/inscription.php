@@ -95,15 +95,11 @@ catch (Exception $e)
       if($row = $sth->fetch())
       {
         ?>
-        <br><br><br>
         <table>
-           <tr>
-             <th>name</th>
-             <th>description</th>
-           </tr>
+        </br> </br>
             <tr>
               <td><?php echo $row->name; ?></td>
-              <td><?php echo $row->description; ?></td>
+              <td><a href="fiche-produit.php?id=<?php echo $row->id; ?>">Cliquez ici pour en savoir plus sur le produit !</a> </td>
             </tr>
       </table>
     <?php  

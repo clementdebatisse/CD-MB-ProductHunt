@@ -19,7 +19,7 @@ catch (Exception $e)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style1.css?version=51">
+    <link rel="stylesheet" type="text/css" href="style1.css?version=55">
     <title>Product-Hunt</title>
 </head>
 <body>
@@ -84,15 +84,11 @@ catch (Exception $e)
       if($row = $sth->fetch())
       {
         ?>
-        <br><br><br>
         <table>
-           <tr>
-             <th>name</th>
-             <th>description</th>
-           </tr>
+        </br> </br>
             <tr>
               <td><?php echo $row->name; ?></td>
-              <td><?php echo $row->description; ?></td>
+              <td><a href="fiche-produit.php?id=<?php echo $row->id; ?>">Cliquez ici pour en savoir plus sur le produit !</a> </td>
             </tr>
       </table>
     <?php  
@@ -110,31 +106,36 @@ catch (Exception $e)
 
 <?php
 
-$reponse = $bdd->prepare('SELECT * FROM products WHERE id = ?') or die(print_r($bdd->errorInfo()));
-$reponse->execute(array($_GET['id']));
+$id = $_GET['id'];
+//$reponse = $bdd->prepare('SELECT * FROM products WHERE id = ?') or die(print_r($bdd->errorInfo()));
+//$reponse->execute(array($_GET['id']));
+//while ($donnees = $reponse->fetchAll())
 
- 
- 
-while ($donnees = $reponse->fetchAll())
-{ 
-?>  
+  $reponse = $bdd->prepare('SELECT `name`, `description`, `id`, `url`, `ups`, `image` FROM `products` WHERE id = ?');
+  $reponse->execute(array($_GET['id']));
+  while ($donnees = $reponse->fetch()) {
+    ?>
+  
                 <div class="container">
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12 prods-img">
-                    <div class="card">
-                        <img class="card-img-top img-fluid" src="<?php echo $donnees['image']?>" alt="Card image cap">;>
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-xs-12 prods-img">
+                    <div class="card" style= "margin-left: 300px;">
+                        <img class="card-img-top img-fluid" src="<?php echo $donnees['image']?>" alt="Card image cap">
                         <div class="card-body">
                         <h5 class="card-title"><?php echo $donnees['name']; ?></h5>
                         <p class="card-text"><?php echo $donnees['description']; ?></p>
-                        <small class="text-muted">Votez pour ce produit </br> <?php echo $product['ups'] ?></small>
+                        <a class="btn btn-primary btn-lg btn-block" href="addups.php?id=">
+                        <small class="text-white">Votez pour ce produit </br> <?php echo $donnees['ups'] ?> <strong> votes ! </strong></small>
+                        </a>
                     </div>
                     </div>
                     </a>
                 </div>
                 </div>
+
                 <?php
-}
-$reponse->closeCursor(); // Termine le traitement de la requête
-?> 
+  }
+  ?>
+            
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

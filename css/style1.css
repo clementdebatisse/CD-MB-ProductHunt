@@ -55,4 +55,10 @@ body {
 .card {
 
     text-align: center;
+    margin-left: 230px;
+}
+
+#card-produit {
+
+    margin-left: 300px;
 }
