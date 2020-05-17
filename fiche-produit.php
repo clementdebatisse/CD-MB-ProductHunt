@@ -19,7 +19,7 @@ catch (Exception $e)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style1.css?version=56">
+    <link rel="stylesheet" type="text/css" href="style1.css?version=51">
     <title>Product-Hunt</title>
 </head>
 <body>
@@ -106,45 +106,38 @@ catch (Exception $e)
 </div>
 </nav>
 
-<!-- FIN DE LA BARRE DE RECHERCHE -->
-</br>
+<div class="card">
 
-  <?php
-      $selectProducts = $bdd->prepare('SELECT * FROM products ORDER BY ups DESC');
-  $selectProducts->execute();
-  $products = $selectProducts->fetchAll(PDO::FETCH_ASSOC);
+<?php
 
-  //echo "<pre>";
-  //var_dump($products); exit;
+$reponse = $bdd->prepare('SELECT * FROM products WHERE id = ?') or die(print_r($bdd->errorInfo()));
+$reponse->execute(array($_GET['id']));
 
-  foreach($products as $product) { 
-
- ?>
-   
-   <div class="card col-8">
-      <a href="fiche-produit.php?id=">
-        <div class="d-flex flex-row">
-          <img class="card-img-top img-thumbnail" src="<?php echo $product['image']?>" style="width: 200px; height: 200px;">
-           <div class="card-body">
-             <h5 class="card-title"><?php echo $product['name'] ?></h5>
-             <p class="card-text"><ul><?php echo substr($product['description'], 0, 120); ?>...</ul></strong>
-           </div>
-             <div class="card-footer d-flex flex-column-reverse">
-              <a class="btn btn-primary btn-lg btn-block" href="addups.php?id=<?php echo $product["id"]?>">
-              <small class="text-white">Votez pour ce produit </br> <?php echo $product['ups'] ?><strong> votes !</strong></small>
-              </a>
-             </div>
-             </a>
-           </div>
-           </div>
-           </br>
-
-
-  <?php } ?>
-
+ 
+ 
+while ($donnees = $reponse->fetchAll())
+{ 
+?>  
+                <div class="container">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12 prods-img">
+                    <div class="card">
+                        <img class="card-img-top img-fluid" src="<?php echo $donnees['image']?>" alt="Card image cap">;>
+                        <div class="card-body">
+                        <h5 class="card-title"><?php echo $donnees['name']; ?></h5>
+                        <p class="card-text"><?php echo $donnees['description']; ?></p>
+                        <small class="text-muted">Votez pour ce produit </br> <?php echo $product['ups'] ?></small>
+                    </div>
+                    </div>
+                    </a>
+                </div>
+                </div>
+                <?php
+}
+$reponse->closeCursor(); // Termine le traitement de la requête
+?> 
+</div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
 </body>
 </html>

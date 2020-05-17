@@ -116,25 +116,26 @@ $donnees = $reponse->fetchAll();
         <!-- Liste des produits, avec description, notes, liens etc etc..... -->
 
         <div class="card-deck">
+          <a href="fiche-produit.php?id=0">
             <div class="card">
             <img class="card-img-top" src="Library/mask1.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $donnees[0]['name'];?></h5>
+                </a>
                 <p class="card-text"><ul><?php echo $donnees[0]['description'];?></strong></ul>
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
             <div class="card-footer">
                 <small class="text-muted">Publié il a une semaine</small>
             </div>
+            </a>
             </div>
             <div class="card">
+            <a href="fiche-produit.php?id=1">
             <img class="card-img-top" src="Library/mask2.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
-<<<<<<< HEAD
                 <h5 class="card-title"><?php echo $donnees[1]['name'];?></h5>
-=======
-                <h5 class="card-title"><?php echo $donnees[1]['name']?></h5>
->>>>>>> 257a327c3533aa0bb7bb5cc18c3833f1df1950ab
+                </a>
                 <p class="card-text"><ul><?php echo $donnees[1]['description'];?></strong></ul>
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
@@ -143,9 +144,11 @@ $donnees = $reponse->fetchAll();
             </div>
             </div>
             <div class="card">
+            <a href="fiche-produit.php?id=2">
             <img class="card-img-top" src="Library/mask3.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $donnees[2]['name'];?></h5>
+                </a>
                 <p class="card-text"><ul><?php echo $donnees[2]['description'];?></p>
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
@@ -159,9 +162,11 @@ $donnees = $reponse->fetchAll();
 
         <div class="card-deck">
             <div class="card">
+            <a href="fiche-produit.php?id=3">
             <img class="card-img-top" src="Library/gloves1.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $donnees[3]['name'];?></h5>
+                </a>
                 <p class="card-text"><ul><?php echo $donnees[3]['description'];?></ul></strong>
             </div>
             <div class="card-footer">
@@ -169,9 +174,11 @@ $donnees = $reponse->fetchAll();
             </div>
             </div>
             <div class="card">
+            <a href="fiche-produit.php?id=4">
             <img class="card-img-top" src="Library/gloves2.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $donnees[4]['name'];?></h5>
+                </a>
                 <p class="card-text"><ul><?php echo $donnees[4]['description'];?></p>
                 <p class="partnerLink"><strong>Cliquez sur le produit pour être redirigé vers notre partenaire</ul></strong></p>
             </div>
@@ -180,10 +187,12 @@ $donnees = $reponse->fetchAll();
             </div>
             </div>
             <div class="card">
+              <a href="fiche-produit.php?id=5">
             <img class="card-img-top" src="Library/gloves3.jpg" width=479.328px height=296.484px alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $donnees[5]['name'];?></h5>
-                <p class="card-text"><ul><?php echo $donnees[4]['description'];?></p>
+                </a>
+                <p class="card-text"><ul><?php echo $donnees[5]['description'];?></p>
                 <strong>Cliquez sur le produit pour être redirigé vers notre partenaire</strong></ul>
             </div>
             <div class="card-footer">
